@@ -39,20 +39,6 @@ st.markdown("""
         margin: 0.4rem 0;
         color: #1a4a1a;
     }
-    .note-banner {
-        background: linear-gradient(135deg, #fff9e6, #fff3cc);
-        border: 2px solid #f0c040;
-        border-radius: 12px;
-        padding: 1rem 1.5rem;
-        text-align: center;
-        margin: 1rem 0;
-        color: #5a4000;
-    }
-    .note-banner a {
-        color: #b8860b;
-        font-weight: bold;
-        text-decoration: underline;
-    }
     .footer {
         text-align:center; color:#999;
         padding:2rem 0; margin-top:3rem;
@@ -161,8 +147,34 @@ with st.sidebar:
 
     st.markdown("---")
 
-    st.markdown("### 📢 Sponsor Space")
-    st.info("広告枠 / Ad Space Available")
+    st.markdown("### 📢 おすすめ書籍")
+    st.markdown("""
+<div style="
+    background:#fff8f0;
+    border:1px solid #f0c080;
+    border-radius:10px;
+    padding:0.8rem;
+    text-align:center;
+    color:#5a3e00;
+    font-size:0.88rem;
+">
+    🎨 <b>デザイン・イラスト</b><br>
+    ピクセルアート制作に役立つ書籍<br><br>
+    <a href="★AmazonアフィリエイトURLをここに★" target="_blank"
+       style="
+           display:inline-block;
+           background:#ff9900;
+           color:white;
+           padding:0.4rem 1rem;
+           border-radius:6px;
+           text-decoration:none;
+           font-weight:bold;
+           font-size:0.85rem;
+       ">
+        🛒 Amazonで見る
+    </a>
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -176,18 +188,6 @@ with st.sidebar:
 # ========== メインコンテンツ ==========
 st.markdown("<h1 style='text-align:center;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:bold;'>🎨 Image to Excel Pixel Art Generator</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center;color:#666;'>画像をExcelピクセルアートに変換するツール<br>Transform your images into Excel pixel art</p>", unsafe_allow_html=True)
-
-# ========== noteバナー（未解除の場合のみ表示）==========
-if not is_premium:
-    st.markdown(f"""
-<div class="note-banner">
-    💎 <b>高解像度版（最大500px）をお使いの方へ</b><br>
-    解除コードは
-    <a href="{NOTE_URL}" target="_blank">こちらのnote記事（1,000円）</a>
-    で販売中です！<br>
-    <small>サイドバーの解除コード欄に入力すると500pxまで使えます</small>
-</div>
-""", unsafe_allow_html=True)
 
 st.markdown("---")
 

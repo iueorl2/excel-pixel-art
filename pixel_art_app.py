@@ -160,7 +160,7 @@ with st.sidebar:
 ">
     🎨 <b>デザイン・イラスト</b><br>
     ピクセルアート制作に役立つ書籍<br><br>
-    <a href="★AmazonアフィリエイトURLをここに★" target="_blank"
+    <a href="https://amzn.asia/d/02vCmEwo" target="_blank"
        style="
            display:inline-block;
            background:#ff9900;

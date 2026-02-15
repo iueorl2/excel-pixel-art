@@ -6,6 +6,8 @@ from openpyxl.utils import get_column_letter
 import io
 import numpy as np
 
+NOTE_URL = "https://note.com/eager_roses9006/n/n935856e4df9d"
+
 st.set_page_config(
     page_title="Image to Excel Pixel Art",
     page_icon="🎨",
@@ -37,13 +39,25 @@ st.markdown("""
         margin: 0.4rem 0;
         color: #1a4a1a;
     }
+    .note-banner {
+        background: linear-gradient(135deg, #fff9e6, #fff3cc);
+        border: 2px solid #f0c040;
+        border-radius: 12px;
+        padding: 1rem 1.5rem;
+        text-align: center;
+        margin: 1rem 0;
+        color: #5a4000;
+    }
+    .note-banner a {
+        color: #b8860b;
+        font-weight: bold;
+        text-decoration: underline;
+    }
     .footer {
         text-align:center; color:#999;
         padding:2rem 0; margin-top:3rem;
         border-top:1px solid #eee; font-size:0.85rem;
     }
-    /* Googleパスワード自動生成ポップアップを非表示 */
-    input[data-testid="stTextInput-password"]::-webkit-credentials-auto-fill-button,
     input[type="password"]::-webkit-credentials-auto-fill-button,
     input[type="password"]::-webkit-strong-password-auto-fill-button {
         display: none !important;
@@ -55,8 +69,6 @@ st.markdown("""
 
 # ========== サイドバー ==========
 with st.sidebar:
-
-    # About
     st.markdown("### 🎨 About This Tool")
     st.markdown("""
 **Image to Excel Pixel Art Generator**
@@ -78,8 +90,7 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # ========== Premium Unlock（unlock判定を先に行う）==========
-    # unlock判定が必要なのでSettings表示より先に処理する
+    # unlock判定（Settingsより先に処理）
     unlock_code = st.text_input(
         "🔓 解除コード / Unlock Code",
         type="password",
@@ -122,7 +133,7 @@ with st.sidebar:
 
     st.markdown("---")
 
-    # ========== Premium Unlock 表示 ==========
+    # ========== Premium Unlock ==========
     st.markdown("### 🔓 Premium Unlock")
     st.markdown("""
 <div class="free-box">
@@ -139,17 +150,22 @@ with st.sidebar:
     elif unlock_code != "":
         st.error("❌ コードが違います")
     else:
-        st.info("💎 500pxにしたい方はプレミアム版へ！\n\n**1,000円**で解除コードを販売中")
+        st.markdown(f"""
+<div style="background:#f8f9fa;border-radius:8px;padding:0.8rem;margin:0.4rem 0;color:#333;font-size:0.9rem;">
+    💎 500pxにしたい方は<br>
+    <a href="{NOTE_URL}" target="_blank" style="color:#b8860b;font-weight:bold;">
+    こちらのnote記事（1,000円）</a><br>
+    で解除コードを販売中！
+</div>
+""", unsafe_allow_html=True)
 
     st.markdown("---")
 
-    # ========== 広告枠 ==========
     st.markdown("### 📢 Sponsor Space")
     st.info("広告枠 / Ad Space Available")
 
     st.markdown("---")
 
-    # ========== Creator ==========
     st.markdown("### 👤 Creator")
     st.markdown("""
 **Developed by:** iueorl2
@@ -160,6 +176,18 @@ with st.sidebar:
 # ========== メインコンテンツ ==========
 st.markdown("<h1 style='text-align:center;background:linear-gradient(90deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:bold;'>🎨 Image to Excel Pixel Art Generator</h1>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center;color:#666;'>画像をExcelピクセルアートに変換するツール<br>Transform your images into Excel pixel art</p>", unsafe_allow_html=True)
+
+# ========== noteバナー（未解除の場合のみ表示）==========
+if not is_premium:
+    st.markdown(f"""
+<div class="note-banner">
+    💎 <b>高解像度版（最大500px）をお使いの方へ</b><br>
+    解除コードは
+    <a href="{NOTE_URL}" target="_blank">こちらのnote記事（1,000円）</a>
+    で販売中です！<br>
+    <small>サイドバーの解除コード欄に入力すると500pxまで使えます</small>
+</div>
+""", unsafe_allow_html=True)
 
 st.markdown("---")
 

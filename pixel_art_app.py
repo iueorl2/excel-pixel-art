@@ -140,7 +140,7 @@ with st.sidebar:
 <div style="background:#f8f9fa;border-radius:8px;padding:0.8rem;margin:0.4rem 0;color:#333;font-size:0.9rem;">
     💎 500pxにしたい方は<br>
     <a href="{NOTE_URL}" target="_blank" style="color:#b8860b;font-weight:bold;">
-    こちらのnote記事（1,000円）</a><br>
+    こちらのnote記事</a><br>
     で解除コードを販売中！
 </div>
 """, unsafe_allow_html=True)
